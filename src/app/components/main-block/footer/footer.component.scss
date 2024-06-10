@@ -1,0 +1,44 @@
+.footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 100px;
+    align-items: center;
+    border: 2px solid #000;
+    border-radius: 50px;
+    margin: 5px 20px;
+    padding: 10px 50px;
+}
+
+.logo{
+    margin-left: 100px;
+    max-width: 100px;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+
+    li{
+        position: relative;
+        font-family: "Great Vibes", serif;
+        text-transform: capitalize;
+        letter-spacing: 4px;
+        font-size: 40px;
+        cursor: pointer;
+
+        &:hover {
+            color: red;
+        }
+        
+        p{
+            display: flex;
+            align-items: center;
+            
+            img{
+                max-width: 30px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
