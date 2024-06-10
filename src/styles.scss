@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: #d8c5b1;
+  }
+  
+  body {
+    font-size: 16px;
+  }
+  
+  img {
+    width: 100%;
+  }
