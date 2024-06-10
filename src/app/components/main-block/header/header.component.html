@@ -3,16 +3,16 @@
     
     <ul class="topmenu">
         <li>
-            <p>
+            <a [routerLink]="'main'" routerLinkActive="active">
                 <img src="../../../../assets/icon/home.png" alt="home">
                 головна
-            </p>            
+            </a>            
         </li>
         <li>
-            <p>
+            <a [routerLink]="'main'" routerLinkActive="active">
                 <img src="../../../../assets/icon/recept.png" alt="recept">
                 рецепти
-            </p>
+            </a>
             <ul class="topmenu__recept">
                 <li>
                     сніданок
@@ -44,10 +44,10 @@
             </ul>
         </li>
         <li>
-            <p>
+            <a [routerLink]="'reverse-connection'" routerLinkActive="active">
                 <img src="../../../../assets/icon/contacts.png" alt="contacts">
                 зворотній звязок
-            </p>
+            </a>
         </li>
     </ul>
 
