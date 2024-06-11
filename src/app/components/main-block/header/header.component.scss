@@ -1,104 +1,118 @@
-    .header{
-        display: grid;
-        grid-template-columns: 300px 1fr 300px;
-        grid-gap: 100px;
-        align-items: center;
-        border: 2px solid #000;
-        border-radius: 50px;
-        margin: 5px 20px;
-        padding: 10px;
-    }
+.header{
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    grid-gap: 100px;
+    align-items: center;
+    border: 2px solid #000;
+    border-radius: 50px;
+    margin: 5px 20px;
+    padding: 10px;
+    position: relative;
+}
 
-    .logo{
-        margin-left: 100px;
-        max-width: 100px;
-    }
+.logo{
+    margin-left: 100px;
+    max-width: 100px;
+}
 
-    .topmenu{
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
+.topmenu{
+    list-style: none;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr 2fr 2fr;
+    justify-items: center;
 
-        li{
-            position: relative;
-            font-family: "Great Vibes", serif;
-            text-transform: capitalize;
-            letter-spacing: 4px;
-            font-size: 40px;
-            cursor: pointer;
-
-            &:first-child:hover,
-            &:last-child:hover {
-                color: red;
-            }
-            
-            a{
-                display: flex;
-                align-items: center;
-                text-decoration: none;
-                
-                img{
-                    max-width: 30px;
-                    margin-right: 10px;
-                }
-            }
-        }
-        
-        &__recept {
-            display: none; /* Спочатку прихований */
-            position: absolute; /* Позиціонування над іншим контентом */
-            top: 100%; /* Відображення прямо під пунктом меню "Рецепти" */
-            left: 0;
-            background-color: white; /* Задній фон, можна налаштувати під ваш дизайн */
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            width: 200px; /* Ширина випадаючого списку, можна налаштувати */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Тінь для випадаючого списку */
-            z-index: 1; /* Зробити випадаючий список вище за інші елементи */
-            border-radius: 10px !important;/* Плавні кути */ 
-
-            li {
-                padding: 10px; /* Відступи всередині пунктів випадаючого списку */
-                font-size: 25px;
-                
-                &:nth-child(odd){
-                    background-color: #f1f1f1;
-                }
-
-                &:nth-child(even){
-                    background-color: #fff;
-                }
-
-                &:hover {
-                    color: red;
-                }
-            }
-        }
-    }
-
-    .topmenu li:hover .topmenu__recept {
-        display: block;
-        animation: fadeIn 0.3s ease-in-out;
-    }
-
-    /* Анімація плавного появлення */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    .login{
-        display: flex;
-        align-items: center;
-        font-family: "Cormorant Infant", serif;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 25px;
+    li{
+        position: relative;
+        font-family: "Great Vibes", serif;
+        text-transform: capitalize;
+        letter-spacing: 4px;
+        font-size: 40px;
         cursor: pointer;
 
-        img{
-            margin: 0 10px;
-            max-width: 30px;
+        &:first-child a:hover,
+        &:last-child a:hover {
+            color: red;
+        }
+
+        &:nth-child(even){
+            width: 100%;
+        }
+        
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #000;
+
+            img{
+                max-width: 30px;
+                margin-right: 10px;
+            }
         }
     }
+    
+    &__recept {
+        display: none; /* Спочатку прихований */
+        position: absolute; /* Позиціонування над іншим контентом */
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        background-color: white; /* Задній фон, можна налаштувати під ваш дизайн */
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 80%; /* Ширина випадаючого списку, можна налаштувати */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Тінь для випадаючого списку */
+        z-index: 1; /* Зробити випадаючий список вище за інші елементи */
+        border-radius: 10px !important;/* Плавні кути */ 
+
+        li {
+            padding: 10px; /* Відступи всередині пунктів випадаючого списку */
+            font-size: 25px;
+            
+            &:nth-child(odd){
+                background-color: #f1f1f1;
+            }
+
+            &:nth-child(even){
+                background-color: #fff;
+            }
+
+            &:hover {
+                color: red;
+            }
+        }
+    }
+}
+
+.topmenu li:hover .topmenu__recept {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Анімація плавного появлення */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.login{
+    display: flex;
+    align-items: center;
+    font-family: "Cormorant Infant", serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 25px;
+    cursor: pointer;
+    
+    &:hover {
+        color: red;
+    }
+
+    img{
+        margin: 0 10px;
+        max-width: 30px;
+    }
+}

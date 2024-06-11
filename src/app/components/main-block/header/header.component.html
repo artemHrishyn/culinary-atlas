@@ -51,8 +51,10 @@
         </li>
     </ul>
 
-    <div class="login">
+    <div class="login" (click)="loginVisible()">
         <img src="../../../../assets/icon/user login out.png" alt="user">
         увійти
     </div>
+
+    <rca-login-form *ngIf="isLogin"></rca-login-form>
 </div>
