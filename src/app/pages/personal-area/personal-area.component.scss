@@ -1,0 +1,19 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+
+button{
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+.styled-hr {
+    border: none;
+    border-radius: 10px;
+    height: 10px;
+    background-color: #4d4d4f;
+    box-shadow: 6px 10px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}

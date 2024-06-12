@@ -21,6 +21,9 @@ export class LoginFormComponent {
   
   @Input() isLogin: boolean = false;
   @Output() closeLogin: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  @Input() imgLogin: string = '';
+  @Output() returnImgLogin: EventEmitter<string> = new EventEmitter<string>();
   
   public loginData: FormGroup;
   
@@ -48,9 +51,10 @@ export class LoginFormComponent {
     if (form.valid) {
       if (form.value.login == 'admin' && form.value.password == 'adminA1.')
       {
-        // this.goUrlService.goToUrl('personal-area');
+        this.goUrlService.goToUrl('personal-area');
+        this.imgLogin = 'login in.png';
         this.closeLogin.emit(this.isLogin);
-        console.log("submit");
+        this.returnImgLogin.emit(this.imgLogin);
       }
       else {
         form.reset();

@@ -52,9 +52,15 @@
     </ul>
 
     <div class="login" (click)="loginVisible()">
-        <img src="../../../../assets/icon/user login out.png" alt="user">
+        <img [src]='userImg' alt="user">
         увійти
     </div>
 
-    <rca-login-form *ngIf="isLogin"></rca-login-form>
+    <rca-login-form
+        *ngIf="isLogin"
+        [isLogin]="isLogin"
+        (closeLogin)="returnLogin()"
+        [imgLogin]="userImg"
+        (returnImgLogin)="returnImage($event)"
+    ></rca-login-form>
 </div>
