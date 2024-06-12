@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { GoUrlService } from '../../../service/go-url.service';
 
 @Component({
   selector: 'rca-login-form',
@@ -9,6 +10,9 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
     CommonModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  providers:[
+    GoUrlService
   ],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss'
@@ -20,7 +24,7 @@ export class LoginFormComponent {
   
   public loginData: FormGroup;
   
-  constructor() {
+  constructor(private goUrlService: GoUrlService) {
     this.loginData = new FormGroup({
       login: new FormControl("", Validators.required),
       password: new FormControl("", [
@@ -35,6 +39,7 @@ export class LoginFormComponent {
   }
   
   SignOut() {
+    this.goUrlService.goToUrl('main');
     this.isLogin = !this.isLogin
     this.closeLogin.emit(this.isLogin);
   }
@@ -43,6 +48,7 @@ export class LoginFormComponent {
     if (form.valid) {
       if (form.value.login == 'admin' && form.value.password == 'adminA1.')
       {
+        // this.goUrlService.goToUrl('personal-area');
         this.closeLogin.emit(this.isLogin);
         console.log("submit");
       }
