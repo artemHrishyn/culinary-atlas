@@ -1,12 +1,54 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'rca-login-form',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss'
 })
 export class LoginFormComponent {
+  
+  @Input() isLogin: boolean = false;
+  @Output() closeLogin: EventEmitter<boolean> = new EventEmitter<boolean>();
+  
+  public loginData: FormGroup;
+  
+  constructor() {
+    this.loginData = new FormGroup({
+      login: new FormControl("", Validators.required),
+      password: new FormControl("", [
+        Validators.required,
+        Validators.minLength(8), // Минимальная длина пароля
+        Validators.pattern(/[a-z]/), // Хотя бы одна строчная буква
+        Validators.pattern(/[A-Z]/), // Хотя бы одна заглавная буква
+        Validators.pattern(/[0-9]/), // Хотя бы одна цифра
+        Validators.pattern(/[!@#$%^&*()\-=_+[\]{}|\\,.<>/?~]/) // Хотя бы один специальный символ
+      ])
+    })
+  }
+  
+  SignOut() {
+    this.isLogin = !this.isLogin
+    this.closeLogin.emit(this.isLogin);
+  }
 
+  onSubmit(form: FormGroup) {
+    if (form.valid) {
+      if (form.value.login == 'admin' && form.value.password == 'adminA1.')
+      {
+        this.closeLogin.emit(this.isLogin);
+        console.log("submit");
+      }
+      else {
+        form.reset();
+      }
+   }
+ }
 }
